@@ -19,7 +19,7 @@ describe('minErr', function() {
 
     function someFn() {
       function nestedFn() {
-        myError = testError('fail', "I fail!");
+        myError = testError('fail', 'I fail!');
       }
       nestedFn();
     }
@@ -65,7 +65,7 @@ describe('minErr', function() {
     a.b.a = a;
 
     var myError = testError('26', 'a is {0}', a);
-    expect(myError.message).toMatch(/a is {"b":{"a":"<<already seen>>"}}/);
+    expect(myError.message).toMatch(/a is {"b":{"a":"..."}}/);
   });
 
   it('should preserve interpolation markers when fewer arguments than needed are provided', function() {
